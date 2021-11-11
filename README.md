@@ -1,4 +1,4 @@
-# FairfaxFireOpsUi
+# Fairfax Fire Ops UI
 
 ## Project setup
 ```
