@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex';
 import HomePageTile from "@/components/home/HomePageTile";
 
 export default {

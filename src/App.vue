@@ -8,8 +8,10 @@
         <q-btn flat round dense icon="menu" class="q-mr-sm">
           <q-menu transition-show="jump-down" transition-hide="jump-up">
             <q-list style="min-width: 100px">
-              <q-item clickable v-close-popup v-on:click="gotoStations">
-                <q-item-section>Stations</q-item-section>
+              <q-item v-for="page in getPages" v-bind:key="page.label" 
+                clickable v-close-popup 
+                v-on:click="gotoPage(page.url)">
+                  <q-item-section>{{page.label}}</q-item-section>
               </q-item>
             </q-list>
           </q-menu>
@@ -32,17 +34,22 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'App',
   data:()=>({
     appTitle: "Fairfax County Fire and Rescue Operations Dashboard"
   }),
+  computed: {
+    ...mapGetters(['getPages'])
+  },
   methods: {
     gotoHome: function() {
       this.$router.push('/');
     },
-    gotoStations: function() {
-      this.$router.push('/stations');
+    gotoPage: function(url) {
+      this.$router.push(url);   
     }
   }
 }

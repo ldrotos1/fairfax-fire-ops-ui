@@ -4,6 +4,8 @@
 		@mouseout="isMouseOver=false"
 		v-on:click="gotoPage()"
 		:class="{'shadow-18': isMouseOver}">
+			
+			<!-- Tile icon -->
 			<div class="row justify-center">
 				<q-icon 
 					:name="icon" 
@@ -11,9 +13,12 @@
 					:class="{'hovering': isMouseOver, 'not-hovering': !isMouseOver}" 
 					style="font-size:3rem"/>
 			</div>
+
+			<!-- Tile label -->
 			<q-card-section class="row justify-center">
 				<div class="text-h6 text-uppercase" :class="{'hovering': isMouseOver, 'not-hovering': !isMouseOver}">{{label}}</div>
 			</q-card-section>
+
 	</q-card>
 </template>
 
