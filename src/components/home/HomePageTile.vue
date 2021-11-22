@@ -1,9 +1,9 @@
 <template>
-	<q-card class="card bg-primary shadow-7 shadow-transition" 
+	<q-card class="card bg-primary shadow-transition" 
 		@mouseover="isMouseOver=true" 
 		@mouseout="isMouseOver=false"
 		v-on:click="gotoPage()"
-		:class="{'shadow-18': isMouseOver}">
+		:class="{'shadow-12': isMouseOver}">
 			
 			<!-- Tile icon -->
 			<div class="row justify-center">
