@@ -18,13 +18,18 @@
 
 <script>
 import PageSubHeading from '@/components/common/PageSubHeading';
+import {getStationsList} from '@/services/stations';
 
 export default {
   name: 'Stations',
   components: {PageSubHeading},
   data:()=>({
     showStationList:true
-  })
+  }),
+  created: function() {
+    console.log(process.env.VUE_APP_FFX_SERVICE_HOST)
+    getStationsList();
+  }
 }
 </script>
 
