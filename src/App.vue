@@ -1,7 +1,7 @@
 <template>
   <q-layout view="hHh lpR fFf">
 
-    <q-header class="bg-primary text-white">
+    <q-header class="bg-primary text-white" :class="{'shadow-5': onHomePage}">
       <q-toolbar>
 
         <!-- Application menu -->
@@ -42,7 +42,12 @@ export default {
     appTitle: "Fairfax County Fire and Rescue Operations Dashboard"
   }),
   computed: {
-    ...mapGetters(['getPages'])
+    ...mapGetters([
+      'getPages'
+    ]),
+    onHomePage: function() {
+      return this.$route.name === 'Home';
+    }
   },
   methods: {
     gotoHome: function() {

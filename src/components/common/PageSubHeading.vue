@@ -1,6 +1,6 @@
 <template>
 	<div class="bg-secondary text-white">
-		<q-toolbar inset>
+		<q-toolbar class="shadow-5" inset>
 			<q-avatar>
 				<q-icon :name="pageIcon"></q-icon>
 			</q-avatar>
