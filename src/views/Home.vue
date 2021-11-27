@@ -1,5 +1,5 @@
 <template>
-  <q-page class="container row justify-center items-center">
+  <q-page class="outer-container row justify-center items-center">
     <HomePageTiles/>
   </q-page>
 </template>
@@ -14,12 +14,5 @@ export default {
 </script>
 
 <style scoped>
-  .container {
-    background-color: #e6e6e6;
-    position: fixed;
-    top: 50px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-  }
+
 </style>

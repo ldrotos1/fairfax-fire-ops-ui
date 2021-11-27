@@ -5,6 +5,8 @@ import store from './store'
 import { Quasar } from 'quasar'
 import quasarUserOptions from './quasar-user-options'
 
+import '@/assets/css/global.css';
+
 createApp(App)
     .use(Quasar, quasarUserOptions)
     .use(store)

@@ -19,12 +19,5 @@ export default {
 </script>
 
 <style>
-  .outer-container {
-    background-color: #e6e6e6;
-    position: fixed;
-    top: 50px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-  }
+
 </style>

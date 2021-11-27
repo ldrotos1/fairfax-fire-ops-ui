@@ -40,12 +40,5 @@ export default {
 </script>
 
 <style>
-  .inner-container {
-    background-color: #e6e6e6;
-    position: fixed;
-    top: 100px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-  }
+
 </style>
