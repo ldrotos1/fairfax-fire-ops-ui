@@ -1,22 +1,28 @@
 <template>
   <q-drawer
       v-model="showStationList"
-      :width="400"
+      :width="350"
       persistent
       elevated>
-      <q-scroll-area class="fit">
-        <div v-if="stations" class="q-pa-sm">
-          <div v-for="station in stations" :key="station.stationId">
-            {{station.stationName}}
+      <q-scroll-area class="fit background">
+        <q-list padding>
+
+          <div v-for="station in stations" v-bind:key="station.stationId">
+            <StationListItem :station="station"/>
+            <q-separator spaced inset/>
           </div>
-        </div>
+
+        </q-list>
       </q-scroll-area>
-  </q-drawer> 
+  </q-drawer>
 </template>
 
 <script>
+import StationListItem from "@/components/stations/StationListItem";
+
 export default {
   name:'StationsList',
+  components: {StationListItem},
   props:{
     stations:{type:Object, default:undefined}
   },
