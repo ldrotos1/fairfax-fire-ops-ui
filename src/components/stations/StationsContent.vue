@@ -44,7 +44,9 @@ export default {
       else {
         value = value.toUpperCase();
         this.stations = filter(this.stationsAll, (s) => { 
-          return value ? s.stationName.toUpperCase().includes(value) || s.stationNumber.toUpperCase().includes(value) : true; 
+          return s.stationName.toUpperCase().includes(value) || 
+            s.stationNumber.toUpperCase().includes(value) ||
+            s.battalion.toUpperCase().includes(value)
         });
       }
     }

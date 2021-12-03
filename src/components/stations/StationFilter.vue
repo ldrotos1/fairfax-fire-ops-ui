@@ -2,7 +2,7 @@
   <div class="row items-center full-width q-px-md">
     <q-input v-model="filterText" 
       class="full-width" 
-      label="Station filter" 
+      label="Fitler on station number, name, or battalion" 
       square outlined dense 
       hide-bottom-space
       clearable
