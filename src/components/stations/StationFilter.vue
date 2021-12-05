@@ -1,7 +1,7 @@
 <template>
   <q-input v-model="filterText" 
     class="full-width" 
-    label="Fitler on station number, name, or battalion" 
+    label="Fitler on number, name, or battalion" 
     color="accent"
     square outlined dense 
     hide-bottom-space
