@@ -5,8 +5,13 @@
       persistent
       elevated>
         
-      <div class="row absolute-top list-toolbar background">
-        <StationFilter v-on:filter-updated="filterStations"/>
+      <div class="row q-px-md items-center absolute-top list-toolbar background">
+        <div class="col q-mr-md">
+          <StationFilter v-on:filter-updated="filterStations"/>
+        </div>
+        <div class="col-shrink">
+          <StationSort v-on:sort-stations="sortStations"/>
+        </div>
       </div>
 
       <q-scroll-area class="list background">
@@ -29,12 +34,14 @@
 <script>
 import gsap from "gsap";
 import StationFilter from "@/components/stations/StationFilter";
+import StationSort from  "@/components/stations/StationSort";
 import StationListItem from "@/components/stations/StationListItem";
 
 export default {
   name:'StationsList',
   components: {
     StationFilter,
+    StationSort,
     StationListItem
   },
   props:{
@@ -47,6 +54,9 @@ export default {
   methods: {
     filterStations: function(value) {
       this.$emit("filter-updated", value);
+    },
+    sortStations: function(value) {
+      this.$emit("sort-station", value);
     },
     beforeEnter: function(el) {
       el.style.opacity = 0
@@ -77,11 +87,11 @@ export default {
     transition: transform 0.8s ease;
   }
   .list-toolbar {
-    height: 75px;
+    height: 70px;
     border-bottom: 1px solid #888888;
   }
   .list {
-    margin-top: 75px;
-    height: calc(100% - 75px);
+    margin-top: 70px;
+    height: calc(100% - 70px);
   }
 </style>

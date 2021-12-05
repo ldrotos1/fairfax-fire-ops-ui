@@ -1,18 +1,17 @@
 <template>
-  <div class="row items-center full-width q-px-md">
-    <q-input v-model="filterText" 
-      class="full-width" 
-      label="Fitler on station number, name, or battalion" 
-      square outlined dense 
-      hide-bottom-space
-      clearable
-      clear-icon="close"
-      @update:model-value="filterUpdated">
-      <template v-slot:prepend>
-        <q-icon name="filter_alt"/>
-      </template>
-    </q-input>
-  </div>
+  <q-input v-model="filterText" 
+    class="full-width" 
+    label="Fitler on station number, name, or battalion" 
+    color="accent"
+    square outlined dense 
+    hide-bottom-space
+    clearable
+    clear-icon="close"
+    @update:model-value="filterUpdated">
+    <template v-slot:prepend>
+      <q-icon name="filter_alt"/>
+    </template>
+  </q-input>
 </template>
 
 <script>

@@ -3,7 +3,8 @@
     <div v-if="!loading && !loadError">
       <StationsList class="fit"
         :stations="stations" 
-        v-on:filter-updated="filterStations">
+        v-on:filter-updated="filterStations"
+        v-on:sort-station="sortStations">
       </StationsList>
     </div>
     <div v-else-if="loading" class="row justify-center items-center fit">
@@ -21,6 +22,7 @@ import ProgressSpinner from '@/components/common/ProgressSpinner';
 import ErrorMessageCard from '@/components/common/ErrorMessageCard';
 import {getStationsList} from '@/services/stations';
 import filter from 'lodash/filter';
+import sortBy from 'lodash/sortBy';
 
 export default {
   name: "StationsContent",
@@ -37,17 +39,23 @@ export default {
     errorMessage:"Unable to retrieve station list. Please try again later."
   }),
   methods: {
-    filterStations: function(value) {
-      if (!value || value.length === 0) {
+    filterStations: function(filterVal) {
+      if (!filterVal || filterVal.length === 0) {
         this.stations = this.stationsAll;
       } 
       else {
-        value = value.toUpperCase();
+        filterVal = filterVal.toUpperCase();
         this.stations = filter(this.stationsAll, (s) => { 
-          return s.stationName.toUpperCase().includes(value) || 
-            s.stationNumber.toUpperCase().includes(value) ||
-            s.battalion.toUpperCase().includes(value)
+          return s.stationName.toUpperCase().includes(filterVal) || 
+            s.stationNumber.toUpperCase().includes(filterVal) ||
+            s.battalion.toUpperCase().includes(filterVal)
         });
+      }
+    },
+    sortStations: function(sortField) {
+      if (sortField) {
+        this.stations = sortBy(this.stations, [sortField]);
+        this.stationsAll = sortBy(this.stationsAll, [sortField]);
       }
     }
   },
