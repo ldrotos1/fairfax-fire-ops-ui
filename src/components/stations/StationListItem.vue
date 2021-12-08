@@ -1,5 +1,6 @@
 <template>
   <q-item>
+
     <q-item-section top avatar>
       <q-avatar square>
         <img :src="getStationPatchUrl">
@@ -10,6 +11,11 @@
       <q-item-label>Station {{station.stationNumber}} - {{station.stationName}}</q-item-label>
       <q-item-label caption>Battalion {{station.battalion}}</q-item-label>
     </q-item-section>
+
+    <q-item-section v-if="getHqStatus" side top>
+      <q-badge color="accent" :label="getHqStatus"/>
+    </q-item-section>
+
   </q-item> 
 </template>
 
@@ -22,6 +28,18 @@ export default {
   computed: {
     getStationPatchUrl: function() {
       return "images/patches/" + this.station.stationNumber + ".png"
+    },
+    getHqStatus: function() {
+      if (this.station.isBattalionHq) {
+        return "BATT HQ";
+      }
+      else if (this.station.isEmsHq) {
+        return "EMS HQ";
+      }
+      else if (this.station.isOpsHq) {
+        return "OPS HQ";
+      }
+      return undefined;
     }
   }
 }
