@@ -1,14 +1,14 @@
 <template>
-  <q-item>
+  <q-item class="tile" @mouseover="hoverOver()" @mouseleave="hoverOut()" @click="clicked()">
 
     <q-item-section top avatar>
-      <q-avatar square>
+      <q-avatar rounded>
         <img :src="getStationPatchUrl">
       </q-avatar>
     </q-item-section>
 
     <q-item-section>
-      <q-item-label>Station {{station.stationNumber}} - {{station.stationName}}</q-item-label>
+      <q-item-label class="label">Station {{station.stationNumber}} - {{station.stationName}}</q-item-label>
       <q-item-label caption>Battalion {{station.battalion}}</q-item-label>
     </q-item-section>
 
@@ -41,10 +41,27 @@ export default {
       }
       return undefined;
     }
+  },
+  methods: {
+    clicked: function() {
+
+    },
+    hoverOver: function() {
+
+    },
+    hoverOut: function() {
+
+    }
   }
 }
 </script>
 
 <style>
-
+  .label {
+    transition: font-weight .2s ease-in-out;
+  }
+  .tile:hover {
+    font-weight: 750;
+    cursor: pointer;
+  }
 </style>

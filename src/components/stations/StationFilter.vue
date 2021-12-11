@@ -21,8 +21,8 @@ export default {
     filterText: ""
   }),
   methods:{
-    filterUpdated: function(value) {
-      this.$emit("filter-updated", value);
+    filterUpdated: function(filterOn) {
+      this.$store.commit('stations/filterStations', filterOn);
     }
   }
 }

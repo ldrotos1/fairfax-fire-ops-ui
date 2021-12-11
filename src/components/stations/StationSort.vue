@@ -32,7 +32,7 @@ export default {
   name: 'StationSort',
   methods: {
     sortStations: function(sortBy) {
-      this.$emit("sort-stations",sortBy);
+      this.$store.commit('stations/sortStations', sortBy);
     }
   }
 }

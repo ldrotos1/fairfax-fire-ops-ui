@@ -7,10 +7,10 @@
         
       <div class="row q-px-md items-center absolute-top list-toolbar background">
         <div class="col q-mr-md">
-          <StationFilter v-on:filter-updated="filterStations"/>
+          <StationFilter/>
         </div>
         <div class="col-shrink">
-          <StationSort v-on:sort-stations="sortStations"/>
+          <StationSort/>
         </div>
       </div>
 
@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import gsap from "gsap";
 import StationFilter from "@/components/stations/StationFilter";
 import StationSort from  "@/components/stations/StationSort";
@@ -44,20 +45,15 @@ export default {
     StationSort,
     StationListItem
   },
-  props:{
-    stations:{type:Object, default:undefined}
-  },
   data:()=>({
-    showStationList: true,
-    stationList: []
+    showStationList: true
   }),
+  computed: {
+    ...mapGetters({
+      stations: 'stations/getStationsSubSet'
+    })
+  },
   methods: {
-    filterStations: function(value) {
-      this.$emit("filter-updated", value);
-    },
-    sortStations: function(value) {
-      this.$emit("sort-station", value);
-    },
     beforeEnter: function(el) {
       el.style.opacity = 0
       el.style.height = 0
