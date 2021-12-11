@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-		<div v-for="page in getPages" v-bind:key="page.label">
+		<div v-for="page in pages" v-bind:key="page.label">
 			<HomePageTile 
 				:label="page.label" 
 				:icon="page.icon"
@@ -18,7 +18,7 @@ export default {
 	name: "HomePageTiles",
 	components: {HomePageTile},
 	computed: {
-    ...mapGetters(['getPages'])
+		...mapGetters({pages: 'pages/getPages'}),
 	}
 }
 </script>

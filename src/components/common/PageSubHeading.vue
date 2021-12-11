@@ -17,7 +17,7 @@ export default {
     pageIcon: ''
   }),
   created: function() {
-    let pageInfo = this.$store.getters.getPageFromName(this.$route.name);
+    let pageInfo = this.$store.getters['pages/getPageFromName'](this.$route.name);
     this.pageLabel = pageInfo.label;
     this.pageIcon = pageInfo.icon;
   }
