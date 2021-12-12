@@ -21,6 +21,11 @@ const mutations = {
     state.stationsAll = stations ? stations : [];
     state.stationsSubSet = stations ? stations : [];
   },
+
+  setActiveStation: (state, stationNumber) => {
+    state.stationActive = stationNumber;
+  },
+
   filterStations: (state, filterOn) => {
     if (!filterOn || filterOn.length === 0) {
       state.stationsSubSet = state.stationsAll;
@@ -34,6 +39,7 @@ const mutations = {
       });
     }
   },
+
   sortStations: (state, sortOn) => {
     if (sortOn) {
       state.stationsSubSet = sortBy(state.stationsSubSet, [sortOn]);

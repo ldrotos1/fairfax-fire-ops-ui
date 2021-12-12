@@ -15,14 +15,14 @@
       </div>
 
       <q-scroll-area class="list background">
-        <q-list padding>
+        <q-list>
           <transition-group name="station-list" tag="div" :css="false"
             @before-enter="beforeEnter"
             @enter="enter"
             @leave="leave">
               <div v-for="station in stations" v-bind:key="station.stationId">
                 <StationListItem :station="station"/>
-                <q-separator spaced inset/>
+                <q-separator inset/>
               </div>
           </transition-group>
         </q-list>

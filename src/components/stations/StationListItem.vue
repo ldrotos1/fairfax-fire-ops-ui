@@ -1,5 +1,5 @@
 <template>
-  <q-item class="tile" @mouseover="hoverOver()" @mouseleave="hoverOut()" @click="clicked()">
+  <q-item class="tile q-py-md" clickable @mouseover="hoverOver()" @mouseleave="hoverOut()" @click="gotoStation()">
 
     <q-item-section top avatar>
       <q-avatar rounded>
@@ -43,14 +43,15 @@ export default {
     }
   },
   methods: {
-    clicked: function() {
-
+    gotoStation: function() {
+      console.log("FIRED")
+      this.$router.push({ name: 'Station', params: { stationId: this.station.stationId } })
     },
     hoverOver: function() {
-
+      this.$store.commit("stations/setActiveStation", this.station.stationNumber);
     },
     hoverOut: function() {
-
+      this.$store.commit("stations/setActiveStation");
     }
   }
 }
@@ -59,6 +60,8 @@ export default {
 <style>
   .label {
     transition: font-weight .2s ease-in-out;
+  }
+  .tile {
   }
   .tile:hover {
     font-weight: 750;
