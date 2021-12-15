@@ -1,7 +1,7 @@
 <template>
   <q-drawer
       v-model="showStationList"
-      :width="375"
+      :width="listWidth"
       persistent
       elevated>
         
@@ -50,7 +50,8 @@ export default {
   }),
   computed: {
     ...mapGetters({
-      stations: 'stations/getStationsSubSet'
+      stations: 'stations/getStationsSubSet',
+      listWidth: 'layout/getStationListWidth'
     })
   },
   methods: {

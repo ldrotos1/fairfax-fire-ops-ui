@@ -61,8 +61,6 @@ export default {
   .label {
     transition: font-weight .2s ease-in-out;
   }
-  .tile {
-  }
   .tile:hover {
     font-weight: 750;
     cursor: pointer;
