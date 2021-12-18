@@ -6,6 +6,7 @@ import { Quasar } from 'quasar'
 import quasarUserOptions from './quasar-user-options'
 
 import '@/assets/css/global.css';
+import 'mapbox.js/dist/mapbox.css';
 
 createApp(App)
     .use(Quasar, quasarUserOptions)

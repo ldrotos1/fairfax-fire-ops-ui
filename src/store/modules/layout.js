@@ -9,10 +9,10 @@ const getters = {
     return state.stationListWidth;
   },
   setStationMapLeftMargin: (state) => {
-    return state.stationListWidth;
+    return (state.stationListWidth) + 'px';
   },
   setStationMapBottomMargin: (state) => {
-    return state.mainHeaderHeight + state.subHeaderHeight;
+    return (state.mainHeaderHeight + state.subHeaderHeight) + 'px';
   }
 }
 

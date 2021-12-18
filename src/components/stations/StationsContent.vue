@@ -1,7 +1,8 @@
 <template>
-  <div :class="{'inner-container': loading || loadError}">
-    <div v-if="!loading && !loadError">
+  <div :class="{'inner-container': loading || loadError}" class="fit">
+    <div v-if="!loading && !loadError" class="fit">
       <StationsList class="fit"/>
+      <StationsMap class="fit" v-bind:style="{'margin-left':leftMargin, 'margin-bottom':bottomMargin}"/>
     </div>
     <div v-else-if="loading" class="row justify-center items-center fit">
       <ProgressSpinner/>
@@ -15,6 +16,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import StationsList from '@/components/stations/StationsList';
+import StationsMap from '@/components/stations/StationsMap';
 import ProgressSpinner from '@/components/common/ProgressSpinner';
 import ErrorMessageCard from '@/components/common/ErrorMessageCard';
 import {getStationsList} from '@/services/stations';
@@ -23,6 +25,7 @@ export default {
   name: "StationsContent",
   components: {
     StationsList,
+    StationsMap,
     ProgressSpinner,
     ErrorMessageCard
   },
@@ -33,7 +36,9 @@ export default {
   }),
   computed: {
     ...mapGetters({
-      stationsAll: 'stations/getStationsAll'
+      stationsAll: 'stations/getStationsAll',
+      leftMargin: 'layout/setStationMapLeftMargin',
+      bottomMargin: 'layout/setStationMapBottomMargin'
     })
   },
   created: async function() {
