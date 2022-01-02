@@ -4,7 +4,8 @@ import sortBy from 'lodash/sortBy';
 const state = () => ({
   stationsAll: [],
   stationsSubSet: [],
-  stationActive: undefined
+  stationActive: undefined,
+  stationsLayer: undefined
 })
 
 const getters = {
